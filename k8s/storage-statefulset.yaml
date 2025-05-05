@@ -20,7 +20,7 @@ spec:
           image: gcr.io/serovicloud2025/storage:latest
           imagePullPolicy: Always
           ports:
-            - containerPort: 8000
+            - containerPort: 3000
           volumeMounts:
             - name: www
               mountPath: /data/storage
@@ -44,4 +44,4 @@ spec:
     app: my-backend
   ports:
     - port: 80
-      targetPort: 8000
+      targetPort: 3000
