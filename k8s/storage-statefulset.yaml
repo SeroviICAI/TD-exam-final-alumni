@@ -16,7 +16,7 @@ spec:
         app: my-backend
     spec:
       containers:
-        - name: my-container
+        - name: storage
           image: gcr.io/serovicloud2025/storage:latest
           imagePullPolicy: Always
           ports:
@@ -28,7 +28,7 @@ spec:
     - metadata:
         name: storage-volume
       spec:
-        storageClassName: local-storage
+        storageClassName: standard
         accessModes: ["ReadWriteOnce"]
         resources:
           requests:
