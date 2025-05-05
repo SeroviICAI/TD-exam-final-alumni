@@ -6,7 +6,11 @@ on:
       - main
 
 env:
-  PROJECT_ID: ${{ vars.GCP_PROJECT_ID }}
+  PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
+  GCP_SA_KEY: ${{ secrets.GCP_SA_KEY }}
+  GKE_CLUSTER: ${{ secrets.GKE_CLUSTER }}
+  GKE_ZONE: ${{ secrets.GKE_ZONE }}
+  IMAGE_NAME_WEB: gcr.io/${{ secrets.GCP_PROJECT_ID }}/web
 
 jobs:
   deploy:
@@ -36,3 +40,5 @@ jobs:
     - name: Deploy to GKE
       run: |
         gcloud container clusters get-credentials $GKE_CLUSTER --zone $GKE_ZONE
+        kubectl apply -f k8s/storage-statefulset.yaml
+        kubectl apply -f k8s/web-deployment.yaml
