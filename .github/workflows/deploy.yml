@@ -11,6 +11,7 @@ env:
   GKE_CLUSTER: ${{ secrets.GKE_CLUSTER }}
   GKE_ZONE: ${{ secrets.GKE_ZONE }}
   IMAGE_NAME_WEB: gcr.io/${{ secrets.GCP_PROJECT_ID }}/web
+  IMAGE_NAME_STORAGE: gcr.io/${{ secrets.GCP_PROJECT_ID }}/storage
 
 jobs:
   deploy:
