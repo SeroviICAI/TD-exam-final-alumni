@@ -26,7 +26,7 @@ app.post('/phrase', async (req, res) => {
 
   const wordCount = phrase.trim().split(/\s+/).length;
   const instance = wordCount % 2 === 0 ? '0' : '1';
-  const url = `http://${STORAGE_SVC_HOST}-${instance}.storage:3000/store`;
+  const url = `http://${STORAGE_SVC_HOST}-${instance}.storage:8000/store`;
 
   try {
     await axios.post(url, { phrase });
